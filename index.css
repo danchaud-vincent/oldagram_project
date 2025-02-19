@@ -74,7 +74,6 @@ section{
 
 .icon{
     width: 24px;
-    cursor: pointer;
 }
 
 /* lists */
@@ -97,4 +96,11 @@ ul{
 .icons-list{
     margin-bottom: 10px;
     gap: 20px;
+}
+
+/* button */
+button{
+    background: none;
+    border: none;
+    cursor: pointer;
 }
