@@ -1,0 +1,100 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: "Source Sans 3", sans-serif;
+    background-color: #F5F5F5;;
+}
+
+/* Typographie */
+h3{
+    font-size: 16px;
+}
+
+p{ 
+    font-size: 14px;
+}
+
+h3, p {
+    margin: 0px;
+}
+
+.bold{
+    font-weight: 900;
+}
+
+
+/* Layout */
+section{
+    margin-bottom: 20px;
+}
+
+.container{
+    width: 375px;
+    margin: 0 auto;
+    background-color: #FFFFFF;
+}
+
+.hero-container{
+    border-bottom: 2px solid #C6C6C6;
+}
+
+.post-header{
+    display: flex;
+    align-items: center;
+    padding: 10px;
+
+    gap: 10px;
+}
+
+.post-footer{
+    padding: 20px 10px;
+}
+
+.post-comment{
+    margin-top: 12px;
+}
+
+
+/* images */
+.logo, .main-user-img, .icon{
+    display: block;
+}
+
+.main-user-img, .post-user-img{
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.post-feed-img{
+    display: block;
+    width: 100%;
+}
+
+.icon{
+    width: 24px;
+    cursor: pointer;
+}
+
+/* lists */
+ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navigation-list, .icons-list{
+    display: flex;
+    align-items: center;
+}
+
+.navigation-list{
+    justify-content: space-between;
+    padding: 15px;
+}
+
+.icons-list{
+    margin-bottom: 10px;
+    gap: 20px;
+}
