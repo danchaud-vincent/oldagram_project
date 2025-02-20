@@ -37,10 +37,60 @@ const posts = [
 ]
 
 const postsListEl = document.getElementById("posts-list")
+const modalEl = document.getElementById("modal-el")
+const closeModalEl = document.getElementById("close-btn")
+const imgModalEl = document.getElementById("img-modal-el")
 
 // render
 render(posts)
 
+window.onclick = function(event) {
+
+    let parentEl = event.target.parentNode
+
+    if (modalEl.style.display === "block" && parentEl.classList[0] !== "img-modal-content" ){
+        // hide the modal
+        modalEl.style.display = "none"
+    }
+
+    if (parentEl.classList[0] === "post-container"){
+        
+        // get img
+        const imgEl = parentEl.querySelector("img")
+
+        // set img in the modal
+        imgModalEl.setAttribute("src", imgEl.getAttribute("src")) 
+
+        // display the modal
+        modalEl.style.display = "block"
+        
+    }
+    else if (parentEl.classList[0] === "post-likes" || parentEl.classList[0] === "post-icon"){
+
+        // search the parent container
+        while (parentEl.classList[0] !== "post-container"){
+            parentEl = parentEl.parentNode
+        }
+
+        // get img
+        const imgEl = parentEl.querySelector("img")
+
+        // set img in the modal
+        imgModalEl.setAttribute("src", imgEl.getAttribute("src")) 
+
+        // display the modal
+        modalEl.style.display = "block"
+    }
+    
+}
+
+
+// Event
+closeModalEl.addEventListener("click", function(){
+    modalEl.style.display = "none"
+})
+
+// Functions
 function render(arr){
 
     let liDOM = ""
@@ -48,10 +98,10 @@ function render(arr){
     for (let i=0; i<arr.length; i++){
         liDOM += `
             <li>
-                <div class="post-container">
+                <div id="post-container" class="post-container">
                     <img class="post-img" src="${arr[i].post}" alt="">
-                    <div class="likes-container">
-                        <div class="post-likes">
+                    <div id="likes-container" class="likes-container">
+                        <div id="post-likes" class="post-likes">
                             <p>${arr[i].likes}</p>
                             <svg class="post-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z"/></svg>
                             <p>${arr[i].comments}</p>
